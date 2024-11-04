@@ -1,0 +1,144 @@
+.about-container {
+  width: 33%;
+  font-family: "Lato";
+  padding-left: 12px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.about-title {
+  font-family: "EB Garamond Variable", serif;
+  font-size: 23px;
+  font-weight: 700;
+  color: #6689a1;
+  text-transform: uppercase;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.about-subtitle {
+  font-family: "EB Garamond Variable", serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: black;
+}
+
+.about-box {
+  background-color: rgba(191, 183, 173, 0.18);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.about-part-of {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-part-of-text {
+  color: gray;
+  font-size: 16px;
+}
+
+.about-part-of-title-text {
+  margin-top: 10px;
+}
+.about-part-of-title-text a {
+  font-family: "EB Garamond Variable", serif;
+  color: #6689a1;
+  text-decoration: none;
+  font-size: 32px;
+  font-weight: 400;
+  margin-top: 5px;
+}
+
+.about-part-of-author-text a {
+  font-family: "EB Garamond Variable", serif;
+  color: #6689a1;
+  text-decoration: none;
+  font-size: 21px;
+  font-weight: 400;
+  margin-top: 5px;
+}
+
+.about-part-of-author-text a:hover,
+.about-part-of-title-text a:hover {
+  color: #23527c;
+  text-decoration: underline;
+}
+
+.about-part-of-separator {
+  width: 40%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  clear: both;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.about-other .about-header-text {
+  font-family: "Lato";
+  font-size: 16px;
+  line-height: 14px;
+}
+
+.about-box-link-list {
+  display: flex;
+  flex-direction: row;
+}
+
+.about-box-link-list a {
+  font-family: "Lato";
+  color: #6689a1;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  padding-top: 3px;
+}
+
+.about-box-link-list a:hover {
+  color: #23527c;
+  text-decoration: underline;
+}
+
+.about-box-link-list a:not(:last-child):after {
+  content: ",";
+  padding-right: 1px;
+}
+
+.about-navigation-link-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-navigation-link-list ul {
+  padding-left: 20px !important;
+  margin-top: 0 !important;
+}
+
+.about-navigation-link-list ul a {
+  font-family: "Lato";
+  color: #6689a1;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  padding-top: 3px;
+}
+
+.about-navigation-link-list ul li.active a {
+  color: #888888;
+}
+
+.about-navigation-link-list ul a:hover {
+  color: #23527c;
+  text-decoration: underline;
+}

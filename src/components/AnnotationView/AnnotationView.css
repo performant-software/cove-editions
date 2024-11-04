@@ -1,0 +1,175 @@
+html,
+body {
+  background-color: #e0e0e0;
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+.ta-desktop .header,
+.ta-desktop .footer {
+  z-index: 20;
+}
+
+.ta-desktop main {
+  display: flex;
+  flex-direction: row;
+  background-color: #e0e0e0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+}
+
+.content-wrapper main img {
+  max-width: 100%;
+}
+
+.ta-desktop main .r6o-annotatable canvas {
+  height: 100%;
+  height: 100dvh;
+}
+
+.ta-desktop main .r6o-annotatable .r6o-span-highlight-layer {
+  mix-blend-mode: multiply;
+  z-index: 5;
+}
+
+.r6o-presence-layer,
+.ta-desktop main .r6o-annotatable .r6o-highlight-layer.presence {
+  z-index: 10;
+}
+
+.ta-desktop main .ta-annotated-text-container {
+  display: flex;
+  flex-direction: row;
+  background-color: #e0e0e0;
+}
+
+.ta-desktop main .ta-annotated-text-container.is-locked *::selection {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+.ta-desktop main .ta-annotated-text-container .page-wrapper {
+  min-width: 65ch;
+  z-index: 10;
+  width: calc(100vw - 420px);
+}
+
+.ta-desktop main .ta-annotated-text-container .content-wrapper {
+  font-family: Lora;
+  font-size: 17px;
+  height: fit-content;
+  line-height: 190%;
+  min-height: 100%;
+  pointer-events: all;
+  position: relative;
+  white-space: break-spaces;
+  word-wrap: break-word;
+  background-color: #e0e0e0;
+  box-sizing: border-box;
+}
+
+.ta-desktop .spacer {
+  flex-grow: 1;
+}
+
+.ta-drawer {
+  overflow-y: auto;
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.ta-desktop .annotation-list .annotation:not(.readonly),
+.ta-desktop .document-notes-list .annotation:not(.readonly) {
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.18), 0 0 16px -7px rgba(0, 0, 0, 0.25);
+}
+
+.ta-desktop .anno-drawer-panel.annotation-list > ul > li .annotation.selected {
+  box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.18), 2px 3px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.a9s-popup {
+  z-index: 999;
+}
+
+/** Text-/TEI-related specializations **/
+
+main.text .content-wrapper,
+main.tei .content-wrapper {
+  background-color: #fff;
+  min-width: 64ch;
+  padding: 70px 85px 140px 85px;
+}
+
+main.text.list-open .content-wrapper,
+main.tei.list-open .content-wrapper {
+  margin-right: 0;
+}
+
+/** PDF-related specializations **/
+.ta-desktop main.pdf .ta-annotated-text-container .page-wrapper {
+  background-color: transparent;
+  box-shadow: none;
+  overflow-y: hidden;
+}
+
+.ta-desktop main.pdf .spacer {
+  display: none;
+}
+
+.content-wrapper .r6o-pdf-container {
+  bottom: 0;
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+}
+
+.content-wrapper .r6o-pdf-container .page {
+  margin: 10px auto;
+  border: 1px solid var(--gray-300);
+}
+
+.content-wrapper .r6o-pdf-container .pdfViewer .page .textLayer {
+  opacity: 1;
+}
+
+.ta-desktop main.pdf .ta-right-drawer {
+  border-left: 1px solid var(--gray-300);
+  flex-grow: 0.1 !important;
+}
+
+.annotation-popup,
+.a9s-popup,
+.r6o-popup {
+  animation: popupFadeIn 200ms ease-in;
+  border-radius: 5px;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.02), 6px 2px 9px rgba(0, 0, 0, 0.03),
+    7px 12px 22px rgba(0, 0, 0, 0.06), 12px 24px 73px rgba(0, 0, 0, 0.07);
+  font-family: Inter;
+  width: 340px;
+  z-index: 9999;
+  background-color: azure;
+}
+
+.r6o-popup-sr-only,
+.r6o-popup-sr-only:active,
+.r6o-popup-sr-only:focus {
+  clip: rect(0 0 0 0) !important;
+}
+
+@keyframes popupFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.popup-overrides {
+  min-width: 520px !important;
+}
+
+.ta-desktop-meta-container {
+  width: 420px;
+}
