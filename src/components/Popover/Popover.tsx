@@ -92,7 +92,7 @@ export const Popover = (props: PopoverProps) => {
                     {tags.map((t, idx) => (
                       <td className="popover-category-option" key={idx}>
                         {idx === 0 && <FaTag color={t.color} />}
-                        {t.name}
+                        <div className="popover-tag">{t.name}</div>
                       </td>
                     ))}
                   </tr>

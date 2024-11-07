@@ -80,3 +80,11 @@ td {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.popover-tag {
+  background-color: #f1f1f1;
+  border-radius: 0.3rem;
+  border: 1px #8080807a solid;
+  padding: 0 0.5rem;
+  margin: 0 0.2rem 0 0;
+}

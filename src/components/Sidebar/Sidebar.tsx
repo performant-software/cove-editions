@@ -96,7 +96,7 @@ export const Sidebar = ({
                       {idx === 0 && (
                         <FaTag color="green" style={{ paddingRight: 5 }} />
                       )}
-                      {tag}
+                      <div className="sidebar-tag">{tag}</div>
                     </div>
                   ))}
               </div>
@@ -189,63 +189,64 @@ export const Sidebar = ({
               <div className="sidebar-filter-tag-set">
                 Tags:
                 <div className="sidebar-filter-tags">
-                  {filters.tags.map((t) => (
-                    <div
-                      key={t}
-                      className="sidebar-filter-option"
-                      onClick={() => onToggleTagFilter(t)}
-                      onMouseEnter={() => setHoverTag(t)}
-                      onMouseLeave={() => setHoverTag(undefined)}
-                    >
-                      {hoverTag === t ? (
-                        filtered.tags.includes(t) ? (
-                          <FaMinusCircle
-                            color="red"
-                            style={{ paddingRight: 5 }}
-                          />
+                  {filters.tags.map((t) =>
+                    filtered.tags.includes(t) ? (
+                      <div />
+                    ) : (
+                      <div
+                        key={t}
+                        className="sidebar-filter-option"
+                        onClick={() => onToggleTagFilter(t)}
+                        onMouseEnter={() => setHoverTag(t)}
+                        onMouseLeave={() => setHoverTag(undefined)}
+                      >
+                        {hoverTag === t ? (
+                          filtered.tags.includes(t) ? (
+                            <FaMinusCircle
+                              color="red"
+                              style={{ paddingRight: 5 }}
+                            />
+                          ) : (
+                            <FaPlusCircle
+                              color="green"
+                              style={{ paddingRight: 5 }}
+                            />
+                          )
                         ) : (
-                          <FaPlusCircle
-                            color="green"
-                            style={{ paddingRight: 5 }}
-                          />
-                        )
-                      ) : (
-                        <FaTag color="green" style={{ paddingRight: 5 }} />
-                      )}
-                      {t}
-                    </div>
-                  ))}
+                          <FaTag color="green" style={{ paddingRight: 5 }} />
+                        )}
+                        {t}
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
               <div className="sidebar-filter-tag-set">
                 People:
                 <div className="sidebar-filter-tags">
-                  {filters.authors.map((t) => (
-                    <div
-                      key={t}
-                      className="sidebar-filter-option"
-                      onClick={() => onToggleAuthorFilter(t)}
-                      onMouseEnter={() => setHoverAuthor(t)}
-                      onMouseLeave={() => setHoverAuthor(undefined)}
-                    >
-                      {hoverAuthor === t ? (
-                        filtered.authors.includes(t) ? (
-                          <FaMinusCircle
-                            color="red"
-                            style={{ paddingRight: 5 }}
-                          />
-                        ) : (
+                  {filters.authors.map((t) =>
+                    filtered.authors.includes(t) ? (
+                      <div />
+                    ) : (
+                      <div
+                        key={t}
+                        className="sidebar-filter-option"
+                        onClick={() => onToggleAuthorFilter(t)}
+                        onMouseEnter={() => setHoverAuthor(t)}
+                        onMouseLeave={() => setHoverAuthor(undefined)}
+                      >
+                        {hoverAuthor === t ? (
                           <FaPlusCircle
                             color="green"
                             style={{ paddingRight: 5 }}
                           />
-                        )
-                      ) : (
-                        <FaUser color="#1e95e5" style={{ paddingRight: 5 }} />
-                      )}
-                      {t}
-                    </div>
-                  ))}
+                        ) : (
+                          <FaUser color="#1e95e5" style={{ paddingRight: 5 }} />
+                        )}
+                        {t}
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
             </div>
