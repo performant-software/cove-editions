@@ -1,0 +1,39 @@
+.header-tabs ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: row;
+}
+
+.header-tabs li {
+  font-family: "Lato";
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-block;
+  border-radius: 0.3rem 0.3rem 0 0;
+  background-color: #868686;
+  border: 1px #b5b5b5 solid;
+  margin: 0;
+  width: 7rem;
+  text-align: left;
+  font-weight: 700;
+  line-height: 1.6rem;
+  height: 1.7rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding-left: 10px;
+}
+
+.header-adjust {
+  width: 40px !important;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0 !important;
+}
+
+.header-tabs li.active {
+  background-color: white;
+}

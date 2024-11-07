@@ -1,5 +1,27 @@
 {
-  "teiUrl": "../data/test-data-1.xml",
+  "teiUrl": "../data/test-data-3.xml",
+  "tagVocabulary": [
+    {
+      "tagName": "Person",
+      "tagColor": "#8f33c1"
+    },
+    {
+      "tagName": "Place",
+      "tagColor": "#2a917b"
+    },
+    {
+      "tagName": "Insight",
+      "tagColor": "#29cae8"
+    },
+    {
+      "tagName": "Translate",
+      "tagColor": "#be0836"
+    },
+    {
+      "tagName": "Textual",
+      "tagColor": "#ff0298"
+    }
+  ],
   "metadata": {
     "partOf": {
       "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/The_Four_Zoas.jpg/220px-The_Four_Zoas.jpg",

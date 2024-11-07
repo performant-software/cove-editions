@@ -9,18 +9,6 @@
   border-radius: 0.3rem;
 }
 
-.popover-content::before {
-  position: absolute;
-  z-index: -1;
-  content: "";
-  top: -8px;
-  border-style: solid;
-  border-width: 0 10px 10px 10px;
-  border-color: transparent transparent #bfbfbf transparent;
-  transition-duration: 0.3s;
-  transition-property: transform;
-}
-
 .popover-content table {
   border: none !important;
   border-radius: 0.3rem;
@@ -73,6 +61,15 @@ td {
   font-size: 0.8rem;
   font-family: "Lato";
   font-size: 13px;
+}
+
+.popover-category-option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "Lato";
+  font-size: 13px;
+  gap: 6px;
 }
 
 .popover-truncate {

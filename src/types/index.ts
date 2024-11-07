@@ -3,6 +3,12 @@ export type Link = {
   url: string;
   active?: boolean;
 };
+
+type TagVocabulary = {
+  tagName: string;
+  tagColor: string;
+};
+
 export type EditionsMetaData = {
   partOf: {
     imageUrl: string;
@@ -24,6 +30,8 @@ export type EditionsMetaData = {
 
 export type Config = {
   teiUrl: string;
+
+  tagVocabulary: TagVocabulary[];
 
   metadata: EditionsMetaData;
 };
