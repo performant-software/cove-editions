@@ -6,14 +6,16 @@ body {
 }
 
 .anno-view {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   position: relative;
 }
 
 .anno-desktop {
   display: flex;
   position: relative;
+  padding: 32px;
+  box-sizing: content-box;
 }
 
 .ta-desktop .header,
@@ -62,7 +64,6 @@ body {
 .ta-desktop main .ta-annotated-text-container .page-wrapper {
   min-width: 65ch;
   z-index: 10;
-  width: calc(100vw - 420px);
 }
 
 .ta-desktop main .ta-annotated-text-container .content-wrapper {
@@ -109,7 +110,6 @@ main.text .content-wrapper,
 main.tei .content-wrapper {
   background-color: #fff;
   min-width: 64ch;
-  padding: 70px 85px 140px 85px;
 }
 
 main.text.list-open .content-wrapper,

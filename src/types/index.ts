@@ -32,6 +32,8 @@ export type Config = {
   teiUrl: string;
 
   tagVocabulary: TagVocabulary[];
+};
 
+export type AboutConfig = {
   metadata: EditionsMetaData;
 };

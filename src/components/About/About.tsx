@@ -1,9 +1,9 @@
-import { Config } from "../../types";
+import { AboutConfig } from "../../types";
 
 import "./About.css";
 
 export interface AboutProps {
-  config: Config;
+  config: AboutConfig;
 }
 
 export const About = (props: AboutProps) => {

@@ -1,8 +1,24 @@
 {
-  "name": "ceteicean-test",
-  "private": true,
-  "version": "0.0.0",
+  "name": "cove-edition",
+  "private": false,
+  "version": "0.1.3-beta.3",
   "type": "module",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "/dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -13,7 +29,8 @@
     "@annotorious/react": "3.0.11",
     "@fontsource-variable/eb-garamond": "^5.1.1",
     "@fontsource/lato": "^5.1.0",
-    "@recogito/react-text-annotator": "^3.0.0-rc.50",
+    "@recogito/react-text-annotator": "^3.0.0-rc.51",
+    "ajv": "^8.17.1",
     "openseadragon": "4.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -22,6 +39,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
+    "@types/node": "^22.9.0",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.2",
@@ -31,6 +49,7 @@
     "globals": "^15.9.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.7.0",
-    "vite": "^5.4.8"
+    "vite": "^5.4.8",
+    "vite-plugin-dts": "^4.3.0"
   }
 }

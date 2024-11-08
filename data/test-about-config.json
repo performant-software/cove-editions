@@ -1,0 +1,110 @@
+  {
+    "metadata": {
+      "partOf": {
+        "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/The_Four_Zoas.jpg/220px-The_Four_Zoas.jpg",
+        "collection": {
+          "linkText": "Paradise Lost",
+          "url": "https://example.com"
+        },
+        "author": {
+          "linkText": "William Blake",
+          "url": "https://example.com"
+        }
+      },
+      "editorInChief": {
+        "linkText": "Lorin Jameson",
+        "url": "https://example.com"
+      },
+      "editors": [
+        {
+          "linkText": "Lorin Jameson",
+          "url": "https://example.com"
+        },
+        {
+          "linkText": "Rainer Simon",
+          "url": "https://example.com"
+        }
+      ],
+      "annotators": [
+        {
+          "linkText": "Lorin Jameson",
+          "url": "https://example.com"
+        },
+        {
+          "linkText": "Rainer Simon",
+          "url": "https://example.com"
+        }
+      ],
+      "tags": [
+        {
+          "linkText": "creepy",
+          "url": "https://example.com"
+        },
+        {
+          "linkText": "hell",
+          "url": "https://example.com"
+        }
+      ],
+      "person": [
+        {
+          "linkText": "William Blake",
+          "url": "https://example.com"
+        },
+        {
+          "linkText": "Satan",
+          "url": "https://example.com"
+        }
+      ],
+      "navigation": {
+        "primaryTexts": [
+          {
+            "linkText": "Paradise Lost: Book 1",
+            "url": "https://example.com"
+          },
+          {
+            "linkText": "Paradise Lost: Book 2",
+            "url": "https://example.com"
+          },
+          {
+            "linkText": "Paradise Lost: Book 3",
+            "url": "https://example.com"
+          },
+          {
+            "linkText": "Paradise Lost: Book 4",
+            "url": "https://example.com"
+          },
+          {
+            "linkText": "Paradise Lost: Book 5",
+            "url": "https://example.com"
+          },
+          {
+            "linkText": "Paradise Lost: Book 6",
+            "url": "https://example.com"
+          },
+          {
+            "linkText": "Paradise Lost: Book 7",
+            "url": "http://localhost:5173",
+            "active": true
+          }
+        ],
+        "editorialApparatus": [
+          {
+            "linkText": "To Hell and Back. An examination of Blake and opioid use.",
+            "url": "https://example.com"
+          }
+        ],
+        "exhibits": [
+          {
+            "linkText": "Examples of illustrations for Paradise Lost",
+            "url": "https://example.com"
+          }
+        ],
+        "supplementalMaterials": [
+          {
+            "linkText": "So you want to cruise the river Styx",
+            "url": "https://example.com"
+          }
+        ]
+      }
+    }
+  }

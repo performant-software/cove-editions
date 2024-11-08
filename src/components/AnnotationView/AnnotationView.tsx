@@ -24,7 +24,7 @@ import {
 import { useEmbeddedTEIAnnotations } from "./useEmbeddedAnnotations";
 import { Popover } from "../Popover";
 import { Sidebar } from "../Sidebar";
-import { About } from "../About";
+
 import { Config } from "../../types";
 
 const getRandomColor = () => {
@@ -280,7 +280,6 @@ export const AnnotationView = (props: AnnotationProps) => {
                   </div>
                 </div>
               </div>
-              <About config={props.config} />
             </main>
           </div>
         </div>
