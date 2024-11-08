@@ -144,7 +144,7 @@ export const AnnotationView = (props: AnnotationProps) => {
       return map;
     };
     if (anno && annotations.length > 0) {
-      anno.setAnnotations(annotations, false);
+      anno.setAnnotations(annotations, true);
       setAnnoMap(createAnnoMap());
     }
   }, [anno, annotations, props.config]);
@@ -259,11 +259,7 @@ export const AnnotationView = (props: AnnotationProps) => {
               <div className="ta-annotated-text-container">
                 <div className="page-wrapper">
                   <div className="content-wrapper">
-                    <TEIAnnotator
-                      annotatingEnabled={false}
-                      style={hse}
-                      //renderer="SPANS"
-                    >
+                    <TEIAnnotator annotatingEnabled={false} style={hse}>
                       <CETEIcean tei={file} />
                     </TEIAnnotator>
                     <TextAnnotatorPopup
