@@ -250,8 +250,7 @@ export const AnnotationView = (props: AnnotationProps) => {
     setFiltered(copy);
   };
 
-  if (file) {
-    return (
+  return (
       <div className="anno-view">
         <div className="anno-desktop ">
           <div className="ta-desktop">
@@ -294,8 +293,5 @@ export const AnnotationView = (props: AnnotationProps) => {
           onToggleAuthorFilter={handleToggleAuthorFilter}
         />
       </div>
-    );
-  } else {
-    return <div />;
-  }
+    )
 };
