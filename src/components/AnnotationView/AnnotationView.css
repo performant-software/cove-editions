@@ -12,7 +12,6 @@ body {
 }
 
 .anno-desktop {
-  display: flex;
   position: relative;
   padding: 32px;
   box-sizing: content-box;
@@ -183,4 +182,19 @@ main.tei.list-open .content-wrapper {
 
 .ta-desktop-meta-container {
   width: 420px;
+}
+
+.content-wrapper-2 {
+  font-family: Lora;
+  font-size: 17px;
+  height: fit-content;
+  line-height: 190%;
+  min-height: 100%;
+  pointer-events: all;
+  position: relative;
+  white-space: break-spaces;
+  word-wrap: break-word;
+  background-color: #e0e0e0;
+  box-sizing: border-box;
+  min-width: 64ch;
 }

@@ -251,47 +251,39 @@ export const AnnotationView = (props: AnnotationProps) => {
   };
 
   return (
-      <div className="anno-view">
-        <div className="anno-desktop ">
-          <div className="ta-desktop">
-            <main className="ta-annotated-text-container tei">
-              <div className="ta-annotated-text-container">
-                <div className="page-wrapper">
-                  <div className="content-wrapper">
-                    <TEIAnnotator annotatingEnabled={false} style={hse}>
-                      <CETEIcean tei={file} />
-                    </TEIAnnotator>
-                    <TextAnnotatorPopup
-                      popup={(props) => {
-                        return (
-                          <TestPopup
-                            onClick={handleAnnotationClick}
-                            selection={selection.selected[0].annotation}
-                            {...props}
-                          />
-                        );
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </main>
-          </div>
+    <div className="anno-view">
+      <div className="anno-desktop ">
+        <div className="content-wrapper-2">
+          <TEIAnnotator annotatingEnabled={false} style={hse}>
+            <CETEIcean tei={file} />
+          </TEIAnnotator>
+          <TextAnnotatorPopup
+            popup={(props) => {
+              return (
+                <TestPopup
+                  onClick={handleAnnotationClick}
+                  selection={selection.selected[0].annotation}
+                  {...props}
+                />
+              );
+            }}
+          />
         </div>
-        <Sidebar
-          opened={sidebarOpen}
-          adjust={adjust}
-          filtered={filtered}
-          filters={tags}
-          onClickClose={handleOnClickClose}
-          onClickOpen={handleOnClickOpen}
-          annotation={
-            selection.selected[0] ? selection.selected[0].annotation : undefined
-          }
-          onAdjust={handleAdjust}
-          onToggleTagFilter={handleToggleTagFilter}
-          onToggleAuthorFilter={handleToggleAuthorFilter}
-        />
       </div>
-    )
+      <Sidebar
+        opened={sidebarOpen}
+        adjust={adjust}
+        filtered={filtered}
+        filters={tags}
+        onClickClose={handleOnClickClose}
+        onClickOpen={handleOnClickOpen}
+        annotation={
+          selection.selected[0] ? selection.selected[0].annotation : undefined
+        }
+        onAdjust={handleAdjust}
+        onToggleTagFilter={handleToggleTagFilter}
+        onToggleAuthorFilter={handleToggleAuthorFilter}
+      />
+    </div>
+  );
 };
