@@ -47,7 +47,7 @@ export const useEmbeddedTEIAnnotations = (xml?: string) => {
 
     const doc = parser.parseFromString(xml, "text/xml");
 
-    const standoffElements = doc.querySelectorAll("TEI > teiHeader > standOff");
+    const standoffElements = doc.querySelectorAll("TEI > standOff");
 
     const annotationLists = Array.from(standoffElements).reduce<
       AnnotationList[]
@@ -68,12 +68,9 @@ export const useEmbeddedTEIAnnotations = (xml?: string) => {
       const annotationElements = standoffEl.querySelectorAll(
         "listAnnotation > annotation"
       );
-      const annotations = Array.from(annotationElements).map((el) => {
-        const id = el.getAttribute("xml:id");
 
-        const [startSelector, endSelector] = el
-          .getAttribute("target")
-          ?.split(" ") as [string, string];
+      const annotationsAndNotes = Array.from(annotationElements).map((el) => {
+        const id = el.getAttribute("xml:id");
 
         const changes = Array.from(
           el.querySelectorAll("revisionDesc > change")
@@ -114,6 +111,10 @@ export const useEmbeddedTEIAnnotations = (xml?: string) => {
         const created = changes.find((c) => c.status === "created");
         const updated = changes.find((c) => c.status === "modified");
 
+        const [startSelector, endSelector] = el.getAttribute("target")
+          ? (el.getAttribute("target")!.split(" ") as [string, string])
+          : [undefined, undefined];
+
         return {
           id,
           layer_id: layerId,
@@ -127,18 +128,21 @@ export const useEmbeddedTEIAnnotations = (xml?: string) => {
               ? users.find((u) => u.id === updated.who)
               : undefined,
             updated: updated?.when,
-            selector: [
-              {
-                startSelector: {
-                  type: "XPathSelector",
-                  value: startSelector,
-                },
-                endSelector: {
-                  type: "XPathSelector",
-                  value: endSelector,
-                },
-              },
-            ],
+            selector:
+              startSelector && endSelector
+                ? [
+                    {
+                      startSelector: {
+                        type: "XPathSelector",
+                        value: startSelector,
+                      },
+                      endSelector: {
+                        type: "XPathSelector",
+                        value: endSelector,
+                      },
+                    },
+                  ]
+                : undefined,
           },
           bodies: [
             ...notes.map((note) => ({
@@ -163,6 +167,10 @@ export const useEmbeddedTEIAnnotations = (xml?: string) => {
           ],
         } as unknown as TextAnnotation;
       });
+
+      const annotations = annotationsAndNotes.filter(
+        (a) => a.target.selector
+      ) as TextAnnotation[];
 
       return [...lists, { layer, annotations }];
     }, []);
