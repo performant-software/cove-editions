@@ -1,5 +1,5 @@
 {
-  "teiUrl": "../data/test-data-4.xml",
+  "teiUrl": "https://staging.faircopy.cloud/documents/the_skeleton/tei",
   "tagVocabulary": [
     {
       "tagName": "Person",

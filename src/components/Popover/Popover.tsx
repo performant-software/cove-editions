@@ -19,7 +19,7 @@ export interface PopoverProps {
 type EditionAnno = {
   id: string;
   quote: string;
-  annotation: string;
+  annotation: string[];
   author: string;
 };
 
@@ -47,20 +47,27 @@ export const Popover = (props: PopoverProps) => {
           name: body.value || "Unknown",
           color: "green",
           quote: props.annotation.target.selector[0].quote,
-          author: body.creator?.name || "Anonymous",
+          author:
+            body.creator?.name ||
+            props.annotation.target.creator?.name ||
+            "Anonymous",
           annotation: "_no_annotation_",
         });
       } else {
+        const lines = body.value?.split("\n");
         annos.push({
           id: body.id,
           quote: props.annotation.target.selector[0].quote,
-          annotation: body.value || "",
-          author: body.creator?.name || "Anonymous",
+          annotation: lines || [body.value || ""],
+          author:
+            body.creator?.name ||
+            props.annotation.target.creator?.name ||
+            "Anonymous",
         });
       }
     });
 
-    setAnnotations(annos.length > 0 ? annos : ts);
+    setAnnotations(annos);
     setTags(ts);
   }, [props.annotation]);
 
@@ -89,16 +96,48 @@ export const Popover = (props: PopoverProps) => {
                     </td>
                   </tr>
                   <tr>
-                    {tags.map((t, idx) => (
-                      <td className="popover-category-option" key={idx}>
-                        {idx === 0 && <FaTag color={t.color} />}
-                        <div className="popover-tag">{t.name}</div>
-                      </td>
-                    ))}
+                    <div className="popover-tag-row">
+                      {tags.map((t, idx) => (
+                        <td className="popover-category-option" key={idx}>
+                          {idx === 0 && <FaTag color={t.color} />}
+                          <div className="popover-tag">{t.name}</div>
+                        </td>
+                      ))}
+                    </div>
                   </tr>
                   <tr>
                     <td className="popover-teaser">
-                      {a.annotation === "_no_annotation_" ? "" : a.annotation}
+                      <div className="popover-annotation">
+                        {a.annotation[0] === "_no_annotation_"
+                          ? ""
+                          : a.annotation.map((l, idx) => {
+                              if (
+                                l.startsWith("http") &&
+                                [".jpg", ".png"].includes(l.slice(-4))
+                              ) {
+                                return (
+                                  <img
+                                    key={idx}
+                                    src={l}
+                                    className="popover-annotation-img"
+                                    alt="image in annotation"
+                                  />
+                                );
+                              } else if (l.startsWith("http")) {
+                                return (
+                                  <a key={idx} href={l}>
+                                    {l}
+                                  </a>
+                                );
+                              } else {
+                                return (
+                                  <div className="popover-annotation-line">
+                                    {l}
+                                  </div>
+                                );
+                              }
+                            })}
+                      </div>
                     </td>
                   </tr>
                 </tbody>

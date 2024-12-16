@@ -1,7 +1,7 @@
 {
   "name": "@performant-software/cove-edition",
   "private": false,
-  "version": "0.1.5",
+  "version": "0.1.8",
   "type": "module",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
@@ -29,7 +29,7 @@
     "@annotorious/react": "3.0.14",
     "@fontsource-variable/eb-garamond": "^5.1.1",
     "@fontsource/lato": "^5.1.0",
-    "@recogito/react-text-annotator": "^3.0.0-rc.53",
+    "@recogito/react-text-annotator": "^3.0.0-rc.54",
     "ajv": "^8.17.1",
     "openseadragon": "4.0.0",
     "react": "^18.3.1",

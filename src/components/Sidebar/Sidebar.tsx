@@ -85,20 +85,24 @@ export const Sidebar = ({
                     }
                   >
                     <FaUser color="#1e95e5" />
-                    {annotation.bodies[0].creator?.name}
+                    {annotation.bodies[0].creator?.name ||
+                      annotation.target.creator?.name}
                   </div>
                 ) : (
                   <div className="sidebar-header-spacer" />
                 )}
-                {tags.length > 0 &&
-                  tags.map((tag, idx) => (
-                    <div className="sidebar-tags" key={idx}>
-                      {idx === 0 && (
-                        <FaTag color="green" style={{ paddingRight: 5 }} />
-                      )}
-                      <div className="sidebar-tag">{tag}</div>
-                    </div>
-                  ))}
+                {tags.length > 0 && (
+                  <div className="sidebar-tag-container">
+                    {tags.map((tag, idx) => (
+                      <div className="sidebar-tag-sub-container" key={idx}>
+                        {idx === 0 && (
+                          <FaTag color="green" style={{ paddingRight: 5 }} />
+                        )}
+                        <div className="sidebar-tag">{tag}</div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
               <div className="sidebar-content">
                 {annotation ? (
@@ -113,21 +117,54 @@ export const Sidebar = ({
                 <div className="sidebar-annotation">
                   {annotation && annotation.bodies[0]
                     ? annotation.bodies.map((b, idx) => {
-                        return b.purpose !== "tagging" ? (
-                          <div key={b.id}>
-                            {idx !== 0 && (
-                              <div className="sidebar-annotation-extra-author">
-                                <FaUser color="#1e95e5" />
-                                <div>{b.creator?.name}</div>
-                              </div>
-                            )}
-                            <div className="sidebar-annotation-anno">
-                              {b.value}
+                        if (b.purpose !== "tagging") {
+                          const lines = b.value?.split("\n");
+                          return (
+                            <div key={b.id}>
+                              {idx !== 0 && (
+                                <div className="sidebar-annotation-extra-author">
+                                  <FaUser color="#1e95e5" />
+                                  <div>
+                                    {b.creator?.name ||
+                                      annotation.target.creator?.name}
+                                  </div>
+                                </div>
+                              )}
+                              {(lines || []).map((l, idx2) => {
+                                if (
+                                  l.startsWith("http") &&
+                                  [".jpg", ".png"].includes(l.slice(-4))
+                                ) {
+                                  return (
+                                    <img
+                                      key={idx2}
+                                      src={l}
+                                      className="popover-annotation-img"
+                                      alt="image in annotation"
+                                    />
+                                  );
+                                } else if (l.startsWith("http")) {
+                                  return (
+                                    <a key={idx} href={l}>
+                                      {l}
+                                    </a>
+                                  );
+                                } else {
+                                  return (
+                                    <div
+                                      className="sidebar-annotation-anno"
+                                      key={idx2}
+                                    >
+                                      {l}
+                                    </div>
+                                  );
+                                }
+                              })}
                             </div>
-                          </div>
-                        ) : (
-                          <div key={b.id} />
-                        );
+                          );
+                        } else {
+                          return <div key={b.id} />;
+                        }
                       })
                     : "Select an annotation, or click the 'filters' tab above to filter the document."}
                 </div>

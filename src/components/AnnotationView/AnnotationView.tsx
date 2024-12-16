@@ -191,7 +191,11 @@ export const AnnotationView = (props: AnnotationProps) => {
   useEffect(() => {
     fetch(props.config.teiUrl)
       .then((resp) => resp.text())
-      .then((data) => setFile(data));
+      .then((data) => {
+        const value = data; /*.replace(/(\r\n|\n|\r)/gm, "")*/
+        //console.log(value);
+        setFile(value);
+      });
   }, [props.config.teiUrl]);
   const hse: HighlightStyleExpression = (
     a: Annotation,

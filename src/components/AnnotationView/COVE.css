@@ -2354,3 +2354,9 @@ tei-teiheader {
   text-align: left;
   margin-left: 50%;
 }
+tei-note {
+  display: none;
+}
+tei-name {
+  display: none;
+}
