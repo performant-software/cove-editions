@@ -18,6 +18,7 @@ interface AnnotationList {
 }
 
 interface Note {
+  note: Element;
   text: string;
 
   responsible?: User;
@@ -94,6 +95,7 @@ export const useEmbeddedTEIAnnotations = (xml?: string) => {
         const notes: Note[] = Array.from(el.querySelectorAll("note")).map(
           (noteEl) =>
             ({
+              note: noteEl,
               text: noteEl.textContent,
               responsible: users.find(
                 (u) => u.id === normalizeId(noteEl.getAttribute("resp"))
@@ -101,12 +103,9 @@ export const useEmbeddedTEIAnnotations = (xml?: string) => {
             } as Note)
         );
 
-        const tags: string[] = Array.from(
-          el.querySelectorAll("rs[ana]")
-        ).reduce<string[]>(
-          (all, el) => [...all, ...el.getAttribute("ana")!.split(" ")],
-          []
-        );
+        const tags: string[] = el.getAttribute('ana')
+          ? el.getAttribute('ana')!.split(' ').map((tag) => decodeURI(tag))
+          : [];
 
         const created = changes.find((c) => c.status === "created");
         const updated = changes.find((c) => c.status === "modified");
@@ -150,6 +149,7 @@ export const useEmbeddedTEIAnnotations = (xml?: string) => {
               annotation: id,
               value: note.text,
               creator: note.responsible,
+              content: note.note.innerHTML
             })),
             ...tags.map((tag) => ({
               id: uuidv4(),

@@ -1,3 +1,7 @@
+tei-standoff {
+  display: none;
+}
+
 [rend~="h1"],
 [rend~="h2"],
 [rend~="h3"],

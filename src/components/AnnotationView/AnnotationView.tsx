@@ -58,6 +58,7 @@ const TestPopup: FC<TestPopupProps> = (props) => {
 
 type AnnoMap = {
   tags: { [key: string]: string };
+  authors: { [key: string]: string};
   annotationAuthors: { [key: string]: string[] };
   annotationTags: { [key: string]: string[] };
   tagAnnotations: { [key: string]: string[] };
@@ -103,13 +104,14 @@ export const AnnotationView = (props: AnnotationProps) => {
     const createAnnoMap = () => {
       const map: AnnoMap = {
         tags: {},
+        authors: {},
         annotationAuthors: {},
         annotationTags: {},
         tagAnnotations: {},
         annotations: {},
       };
 
-      props.config.tagVocabulary.forEach((v) => {
+      (props.config.tagVocabulary || []).forEach((v) => {
         map.tags[v.tagName] = v.tagColor;
       });
 
@@ -119,6 +121,7 @@ export const AnnotationView = (props: AnnotationProps) => {
           if (body.creator?.name) {
             if (!map.annotationAuthors[body.creator?.name]) {
               map.annotationAuthors[body.creator?.name] = [];
+              map.authors[body.creator?.id] = getRandomColor(); 
             }
 
             map.annotationAuthors[body.creator?.name].push(a.id);
@@ -140,7 +143,6 @@ export const AnnotationView = (props: AnnotationProps) => {
           }
         });
       });
-
       return map;
     };
     if (anno && annotations.length > 0) {
@@ -193,7 +195,6 @@ export const AnnotationView = (props: AnnotationProps) => {
       .then((resp) => resp.text())
       .then((data) => {
         const value = data; /*.replace(/(\r\n|\n|\r)/gm, "")*/
-        //console.log(value);
         setFile(value);
       });
   }, [props.config.teiUrl]);
@@ -203,9 +204,9 @@ export const AnnotationView = (props: AnnotationProps) => {
   ) => {
     let color: Color = "#feef3d";
     if (annoMap) {
-      const found = annoMap.tagAnnotations[a.id];
+      const found = a.target.creator && annoMap.authors[a.target.creator.id];
       if (found) {
-        color = annoMap.tags[found[0]] as Color;
+        color = found as Color;
       }
     }
     return {
