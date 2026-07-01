@@ -4,20 +4,19 @@ The COVE Editions Viewer displays documents created in [Recogito Studio](https:/
 
 ## React Component Usage
 
-To use the COVE Editions Viewer in a React app, import the following dependencies:
+To use the COVE Editions Viewer in a React app, install it via `npm install @performantsoftware/cove-edition`, then import the following dependencies in your app code:
 
 ```
 import { CoveEdition } from "@performant-software/cove-edition";
 import "@performant-software/cove-edition/style.css";
 ```
 
-And then add the following component and props:
+And then add the following component and props on the page where you want the viewer to appear:
 
 ```
  <CoveEdition configUrl={CONFIG_URL} />
 ```
-
-Examples of valid configuration files can be found [here](https://github.com/performant-software/cove-collections).
+Here the value of the `configUrl` prop should be a URL pointing at a valid JSON config file. Examples of valid configuration files can be found [here](https://github.com/performant-software/cove-collections).
 
 ## Development Environment
 If you wish to work on the CoveViewer itself, simple install the necessary Javascript dependencies:
