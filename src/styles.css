@@ -1,0 +1,7 @@
+@import "./App.css";
+@import "./components/About/About.css";
+@import "./components/AnnotationView/AnnotationView.css";
+@import "./components/AnnotationView/COVE.css";
+@import "./components/Popover/Popover.css";
+@import "./components/Sidebar/Sidebar.css";
+@import "./components/Sidebar/Tabs/Tabs.css";
