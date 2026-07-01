@@ -1,4 +1,4 @@
-# COVE Viewer README
+# COVE Viewer React Component
 
 The COVE Viewer displays editions created in [Recogito Studio](https://recogitostudio.org/) and exported as TEI/XML with standoff markup. The configuration of the viewer adds contextual metadata and other tagging and filtering options. The COVE Viewer can be embedded in any website and linked to a configuration file loaded via a URL. 
 
