@@ -1,26 +1,23 @@
 # COVE Editions Viewer Component
 
-The COVE Viewer displays editions created in [Recogito Studio](https://recogitostudio.org/) and exported as TEI/XML with standoff markup. The configuration of the viewer adds contextual metadata and other tagging and filtering options. The COVE Viewer can be embedded in any website and linked to a configuration file loaded via a URL. 
+The COVE Editions Viewer displays documents created in [Recogito Studio](https://recogitostudio.org/) and exported as TEI/XML with standoff markup. The configuration of the viewer adds contextual metadata and other tagging and filtering options. The COVE Editions Viewer can be embedded in any React webpage and linked to a configuration file loaded via a URL. 
 
 ## React Component Usage
 
-To use the COVE Viewer in a React app, include `@performant-software/cove-edition` in your package.json and then invoke the react component in your application:
+To use the COVE Editions Viewer in a React app, import the following dependencies:
 
 ```
 import { CoveEdition } from "@performant-software/cove-edition";
 import "@performant-software/cove-edition/style.css";
-
-const CONFIG_URL = "https://raw.githubusercontent.com/performant-software/cove-collections/refs/heads/main/data/documents/in-an-artists-studio-4915fa36-23f3-4471-a54b-7a1bb4287ce7.json";
-
-function App() {
-  return (
-    <CoveEdition configUrl={CONFIG_URL} />
-  );
-}
-
-export default App;
 ```
 
+And then add the following component and props:
+
+```
+ <CoveEdition configUrl={CONFIG_URL} />
+```
+
+Examples of valid configuration files can be found [here](https://github.com/performant-software/cove-collections).
 
 ## Development Environment
 If you wish to work on the CoveViewer itself, simple install the necessary Javascript dependencies:
