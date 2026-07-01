@@ -6,6 +6,7 @@ import dts from "vite-plugin-dts";
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
+    cssCodeSplit: false,
     //Specifies that the output of the build will be a library.
     lib: {
       entry: path.resolve(__dirname, "src/index.ts"),

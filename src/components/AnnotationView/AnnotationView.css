@@ -192,7 +192,7 @@ main.tei.list-open .content-wrapper {
   min-height: 100%;
   pointer-events: all;
   position: relative;
-  white-space: break-spaces;
+  /* white-space: break-spaces; */
   word-wrap: break-word;
   background-color: #e0e0e0;
   box-sizing: border-box;

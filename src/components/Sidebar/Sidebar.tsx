@@ -9,6 +9,18 @@ import { TextAnnotation } from "@recogito/react-text-annotator";
 import { useEffect, useState } from "react";
 import { Tabs, TabsTypes } from "./Tabs/Tabs";
 import { Filters } from "../AnnotationView/AnnotationView";
+import sanitizeHtml from "sanitize-html";
+
+const sanitize = (raw: string) => {
+  if (raw.includes('<script') || raw.includes('<style')) {
+    return '';
+  }
+  return sanitizeHtml(raw, {
+    allowedTags: false,
+    allowedAttributes: false,
+    allowVulnerableTags: true
+  });
+}
 
 export const Sidebar = ({
   opened,
@@ -118,7 +130,6 @@ export const Sidebar = ({
                   {annotation && annotation.bodies[0]
                     ? annotation.bodies.map((b, idx) => {
                         if (b.purpose !== "tagging") {
-                          const lines = b.value?.split("\n");
                           return (
                             <div key={b.id}>
                               {idx !== 0 && (
@@ -130,36 +141,8 @@ export const Sidebar = ({
                                   </div>
                                 </div>
                               )}
-                              {(lines || []).map((l, idx2) => {
-                                if (
-                                  l.startsWith("http") &&
-                                  [".jpg", ".png"].includes(l.slice(-4))
-                                ) {
-                                  return (
-                                    <img
-                                      key={idx2}
-                                      src={l}
-                                      className="popover-annotation-img"
-                                      alt="image in annotation"
-                                    />
-                                  );
-                                } else if (l.startsWith("http")) {
-                                  return (
-                                    <a key={idx} href={l}>
-                                      {l}
-                                    </a>
-                                  );
-                                } else {
-                                  return (
-                                    <div
-                                      className="sidebar-annotation-anno"
-                                      key={idx2}
-                                    >
-                                      {l}
-                                    </div>
-                                  );
-                                }
-                              })}
+                              {/* @ts-expect-error b.content doesn't exist on imported type */}
+                              <div dangerouslySetInnerHTML={{__html: sanitize(b.content)}} />
                             </div>
                           );
                         } else {
